@@ -1,10 +1,12 @@
 package com.example.szfirstapplication.activities
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -57,7 +59,7 @@ class TextCustomizationActivity : ComponentActivity() {
 
 
 @Composable
-@Preview(showBackground = true, name = "TextCustomization")
+@Preview(showBackground = true, name = "TextCustomization", uiMode = UI_MODE_NIGHT_YES)
 fun Preview() {
     SzFirstApplicationTheme {
         Column(
@@ -113,7 +115,7 @@ fun AnnotatedName() {
                 }
                 withStyle(
                     style = SpanStyle(
-                        color = Color.Black,
+                        color =  if(isSystemInDarkTheme()) Color.White else Color.Black,
                         fontWeight = FontWeight.Bold,
                         fontStyle = FontStyle.Italic,
                         fontSize = 30.sp
@@ -152,7 +154,7 @@ fun AnnotatedSurName() {
                 }
                 withStyle(
                     style = SpanStyle(
-                        color = Color.Black,
+                        color =  if(isSystemInDarkTheme()) Color.White else Color.Black,
                         fontWeight = FontWeight.Bold,
                         fontStyle = FontStyle.Italic,
                         fontSize = 30.sp
