@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.szfirstapplication.composables.CoilImage
+import com.example.szfirstapplication.composables.PasswordTextField
 import com.example.szfirstapplication.ui.theme.SzFirstApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier
                             .padding(24.dp)
                     ) {
-                       CoilImage()
+                       PasswordTextField()
                     }
                 }
             }
