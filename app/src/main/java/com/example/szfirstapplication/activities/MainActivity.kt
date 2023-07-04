@@ -14,21 +14,20 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.szfirstapplication.composables.GradientButton
+import com.example.szfirstapplication.composables.PersonLazyColumn
+import com.example.szfirstapplication.composables.PersonLazyColumnWithStickyHeader
+import com.example.szfirstapplication.repositories.PersonRepository
 import com.example.szfirstapplication.ui.theme.SzFirstApplicationTheme
-import com.example.szfirstapplication.ui.theme.ethzMain
-import com.example.szfirstapplication.ui.theme.indigo500
-import com.example.szfirstapplication.ui.theme.red100
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SzFirstApplicationTheme {
+                val repo = PersonRepository()
+                val peopleList = repo.getAllPeople()
                 Surface(
                     modifier = Modifier
                         .fillMaxSize()
@@ -40,13 +39,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier
                             .padding(24.dp)
                     ) {
-                        GradientButton(
-                            "Smile :)", Color.Green, Brush.horizontalGradient(
-                                colors = listOf(indigo500, ethzMain)
-                            )
-                        ) {
-
-                        }
+                        PersonLazyColumnWithStickyHeader(list = peopleList)
                     }
                 }
             }
@@ -59,6 +52,8 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = false,uiMode = Configuration.UI_MODE_NIGHT_NO)
 fun Preview() {
     SzFirstApplicationTheme {
+        val repo = PersonRepository()
+        val peopleList = repo.getAllPeople()
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -66,13 +61,7 @@ fun Preview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            GradientButton(
-                "Smile :)", Color.Yellow, Brush.horizontalGradient(
-                    colors = listOf(indigo500, red100)
-                )
-            ) {
-
-            }
+            PersonLazyColumn(list = peopleList)
         }
     }
 }
