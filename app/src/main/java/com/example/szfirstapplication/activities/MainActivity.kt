@@ -18,9 +18,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.szfirstapplication.composables.PersonLazyColumn
 import com.example.szfirstapplication.composables.PersonLazyColumnWithStickyHeader
-import com.example.szfirstapplication.repositories.PersonRepository
+import com.example.szfirstapplication.data.repositories.PersonRepository
 import com.example.szfirstapplication.ui.theme.SzFirstApplicationTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

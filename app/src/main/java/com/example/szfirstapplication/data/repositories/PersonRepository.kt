@@ -1,4 +1,4 @@
-package com.example.szfirstapplication.repositories
+package com.example.szfirstapplication.data.repositories
 
 import com.example.szfirstapplication.models.Person
 
