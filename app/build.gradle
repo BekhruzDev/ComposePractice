@@ -89,4 +89,8 @@ dependencies {
     //viewModel
     def lifecycle_version = "2.4.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    //lottie
+    def lottieVersion = "6.0.1"
+    implementation "com.airbnb.android:lottie-compose:$lottieVersion"
 }
