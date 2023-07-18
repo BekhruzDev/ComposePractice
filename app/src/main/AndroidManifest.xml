@@ -16,10 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SzFirstApplication"
-        tools:targetApi="31">
+        tools:targetApi="33">
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.NavigationActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SzFirstApplication">
