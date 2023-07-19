@@ -4,6 +4,10 @@ const val DETAIL_ARGUMENT_ID = "id"
 const val DETAIL_ARGUMENT_NAME = "name"
 const val PROFILE_ARGUMENT_ID = "id"
 const val PROFILE_ARGUMENT_NAME = "name"
+
+const val ROOT_ROUTE = "root"
+const val HOME_ROUTE = "home"
+const val AUTHENTICATION_ROUTE = "authentication"
 sealed class Screen(val route:String){
     object Home:Screen(route = "home_screen")
     object Detail:Screen(route = "detail_screen/{id}/{name}"){
@@ -18,4 +22,6 @@ sealed class Screen(val route:String){
             return "profile_screen?id=$id&name=$name"
         }
     }
+    object Login:Screen(route = "login_screen")
+    object SignUp:Screen(route = "signup_screen")
 }

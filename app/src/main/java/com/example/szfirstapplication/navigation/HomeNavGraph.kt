@@ -1,23 +1,16 @@
-package com.example.szfirstapplication.screens
+package com.example.szfirstapplication.navigation
 
 import android.util.Log
-import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
+import androidx.navigation.*
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
+import com.example.szfirstapplication.screens.*
 
+fun NavGraphBuilder.homeNavGraph(navController:NavHostController){
 
-@Composable
-fun SetupNavGraph(
-    navController: NavHostController
-) {
-    NavHost(
-        navController = navController,
-        startDestination = Screen.Home.route
-    ) {
-
+    navigation(
+        startDestination = Screen.Home.route,
+        route = HOME_ROUTE
+    ){
         composable(
             route = Screen.Home.route
         ) { HomeScreen(navController) }

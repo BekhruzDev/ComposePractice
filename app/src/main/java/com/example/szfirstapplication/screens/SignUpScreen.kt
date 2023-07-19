@@ -1,5 +1,6 @@
 package com.example.szfirstapplication.screens
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,34 +18,30 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun HomeScreen(navHostController: NavHostController) {
+fun SignUpScreen(
+    navController: NavHostController
+) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            modifier = Modifier.clickable {
-                navHostController.navigate(
-                    route = Screen.Detail.passArgs(
-                        25,
-                        "Bekhruz"
-                    )
-                )
-            },
-            text = "Home",
+            modifier = Modifier.clickable { navController.popBackStack() },
+            text = "SignUpScreen",
             color = MaterialTheme.colors.primary,
-            fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
+            fontSize = MaterialTheme.typography.h3.fontSize
         )
         Text(
             modifier = Modifier
                 .padding(top = 150.dp)
                 .clickable {
-                    //navigate to auth graph
-                    navHostController.navigate(AUTHENTICATION_ROUTE)
+                    navController.navigate(HOME_ROUTE) { popUpTo(HOME_ROUTE) }
+                    navController.navigate(Screen.Detail.passArgs(10, "Abdullakhujaev Bekhruz"))
                 },
-            text = "Login or Sign up",
+            text = "Go to detail screen",
             color = MaterialTheme.colors.primary,
             fontSize = MaterialTheme.typography.h6.fontSize,
             fontWeight = FontWeight.Medium,
@@ -52,8 +49,9 @@ fun HomeScreen(navHostController: NavHostController) {
     }
 }
 
+
 @Composable
-@Preview(showBackground = true)
-fun HomeScreenPreview() {
-    HomeScreen(rememberNavController())
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
+fun PreviewSignUpScreen() {
+    SignUpScreen(rememberNavController())
 }

@@ -17,34 +17,34 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun HomeScreen(navHostController: NavHostController) {
+fun LoginScreen(
+    navController: NavHostController
+) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             modifier = Modifier.clickable {
-                navHostController.navigate(
-                    route = Screen.Detail.passArgs(
-                        25,
-                        "Bekhruz"
-                    )
-                )
+                navController.navigate(Screen.SignUp.route)
             },
-            text = "Home",
+            text = "LoginScreen",
             color = MaterialTheme.colors.primary,
-            fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
+            fontSize = MaterialTheme.typography.h3.fontSize
         )
         Text(
             modifier = Modifier
                 .padding(top = 150.dp)
                 .clickable {
-                    //navigate to auth graph
-                    navHostController.navigate(AUTHENTICATION_ROUTE)
+                    //go back home graph
+                    navController.navigate(HOME_ROUTE) {
+                        popUpTo(HOME_ROUTE)
+                    }
                 },
-            text = "Login or Sign up",
+            text = "Go back",
             color = MaterialTheme.colors.primary,
             fontSize = MaterialTheme.typography.h6.fontSize,
             fontWeight = FontWeight.Medium,
@@ -52,8 +52,9 @@ fun HomeScreen(navHostController: NavHostController) {
     }
 }
 
+
 @Composable
 @Preview(showBackground = true)
-fun HomeScreenPreview() {
-    HomeScreen(rememberNavController())
+fun PreviewLoginScreen() {
+    LoginScreen(rememberNavController())
 }

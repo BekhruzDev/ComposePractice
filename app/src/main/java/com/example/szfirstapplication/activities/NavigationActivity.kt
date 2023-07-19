@@ -10,7 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.szfirstapplication.screens.SetupNavGraph
+import com.example.szfirstapplication.navigation.SetupNavGraph
 import com.example.szfirstapplication.ui.theme.SzFirstApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
