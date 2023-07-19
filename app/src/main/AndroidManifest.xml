@@ -19,7 +19,7 @@
         tools:targetApi="33">
 
         <activity
-            android:name=".activities.NavigationActivity"
+            android:name=".activities.BottomNavigationActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SzFirstApplication">
